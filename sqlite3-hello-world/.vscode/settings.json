@@ -2,6 +2,6 @@
     "cmake.sourceDirectory": "${workspaceFolder}/.",
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/../../c++/vcpkg/scripts/buildsystems/vcpkg.cmake"
+        "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/../../../c++/vcpkg/scripts/buildsystems/vcpkg.cmake"
     }
 }
