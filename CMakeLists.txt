@@ -3,6 +3,7 @@ project(modern-clang-examples VERSION 1.0.0)
 
 enable_testing()
 
+add_subdirectory(arrays)
 add_subdirectory(operators)
 add_subdirectory(data-types)
 add_subdirectory(pointers)
