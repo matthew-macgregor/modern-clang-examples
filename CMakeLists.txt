@@ -3,7 +3,9 @@ project(modern-clang-examples VERSION 1.0.0)
 
 enable_testing()
 
+add_subdirectory(operators)
 add_subdirectory(data-types)
+add_subdirectory(pointers)
 add_subdirectory(pointer-practice)
 add_subdirectory(win32-color-printf)
 add_subdirectory(sqlite3-hello-world)
