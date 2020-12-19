@@ -5,6 +5,7 @@ enable_testing()
 
 add_subdirectory(arrays)
 add_subdirectory(conditionals)
+add_subdirectory(loops)
 add_subdirectory(operators)
 add_subdirectory(data-types)
 add_subdirectory(pointers)
