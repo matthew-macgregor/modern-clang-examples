@@ -15,6 +15,7 @@ add_subdirectory(strings)
 add_subdirectory(structs)
 add_subdirectory(sqlite3-hello-world)
 add_subdirectory(typedefs-enums)
+add_subdirectory(unions)
 add_subdirectory(variable-scope)
 
 if (WIN32)
