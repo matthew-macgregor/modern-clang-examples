@@ -7,7 +7,7 @@ enable_testing()
 set(CMAKE_C_STANDARD 11)
 
 add_executable(${PROJECT_NAME} main.c)
-add_compile_definitions(INPUT_KEYBOARD)
+# add_compile_definitions(INPUT_KEYBOARD)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

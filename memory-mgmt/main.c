@@ -32,7 +32,6 @@ void mem_realloc()
     p->age = 50;
     if(strcpy_s(p->first_name, NAME_WIDTH, "Meredith") != 0) return;
     if(strcpy_s(p->last_name, NAME_WIDTH, "Palmer") != 0) return;
-    // people[9] = p;
     assert(people[9].age == 50);
     assert(strcmp(people[9].first_name, "Meredith") == 0);
     assert(strcmp(people[9].last_name, "Palmer") == 0);

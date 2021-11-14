@@ -11,7 +11,7 @@ void basic_array()
     }
 
     int arr1[3] = { 1, 3, 5 };
-    int arr2[] = { 1, 3, 5 };  // Equivalent with above
+    int arr2[] = { 1, 3, 5 };  // Equivalent to example above
 
     for (int i = 0; i < 3; i++)
     {

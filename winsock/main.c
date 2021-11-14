@@ -55,7 +55,6 @@ int main(int argc, char *argv[])
 {
     if (argc < 3)
     {
-
         print_usage();
         set_console_color(FOREGROUND_RED);
         puts("\nERROR: Missing args {hostname} and {port}.\n");
