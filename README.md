@@ -2,10 +2,13 @@
 
 This repo was created as part of a "documentation crawl" to refresh my C language 
 skills. My very first code was written in C twenty-odd years ago, but I haven't kept
-current with modern features. I worked my way through the book: *Modern C Quick 
-Syntax Reference, Second Edition* by Mikael Olsson and created examples of nearly 
-everything. Additionally, I stepped through some C language references, trying to
-cover as much of the c library as possible.
+current with modern features. I created examples of as much as I reasonably could. 
+Additionally, I stepped through some C language references, trying to cover as much 
+of the c library as possible.
+
+Books referenced as part of the documentation crawl:
+
+- *Modern C Quick Syntax Reference, Second Edition* by Mikael Olsson
 
 ## This Repository
 
@@ -19,6 +22,9 @@ if you are building on a different platform.
 [vcpkg](https://vcpkg.io/en/index.html). Follow the setup steps for `vcpkg` first, 
 and install the dependencies listed in the README for the example.
 - You can disable these examples by passing the option `USE_VCPKG=OFF` to `cmake`.
+
+After installing `vcpkg` define the following environment variable:
+`VCPKG_CMAKE_TOOLCHAIN_FILE` set to `${path_to_vcpkg}\scripts\buildsystems\vcpkg.cmake`.
 
 ## Building the Examples
 
