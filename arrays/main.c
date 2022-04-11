@@ -40,7 +40,8 @@ void array_as_pointer()
     printf("Array addr: %p\n", ptr);
     ptr++;
     printf("Array addr: %p\n", ptr);
-    assert((int) &marr != (int) ptr);
+    assert((int*) &marr != (int*) ptr);
+    printf("%p <> %p\n", &marr, ptr);
 }
 
 void sizeof_array()
@@ -49,7 +50,7 @@ void sizeof_array()
     int arr[4];
     int l = sizeof(arr) / sizeof(int);
     assert(l == 4); // ints
-    printf("Size of arr[4] %d\n", sizeof(arr));
+    printf("Size of arr[4] %zu\n", sizeof(arr));
 }
 
 int main(int argc, char **argv)
