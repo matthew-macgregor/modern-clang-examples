@@ -81,7 +81,7 @@ int array_pointer_arithmetic(struct S1 s1_arr[])
     begin("array_pointer_arithmetic");
     struct S1 *s11 = s1_arr; // Address of first item
     struct S1 *s12 = &s1_arr[1]; // Address of second item
-    tprintf("Pointer to second element of array: %p %d\n", s12, s12-s11);
+    tprintf("Pointer to second element of array: %p %lld\n", s12, s12-s11);
     assert(s1_arr[1].foo == (s1_arr + 1)->foo);
     // Equivalent of the above
     struct S1 *s12_1 = (s1_arr + 1);
@@ -106,7 +106,6 @@ int array_of_pointers_to_structs()
     }
 
     tprintf("Pointer to first element in array: %p\n", s1_ptr_arr);
-    tprintf("Value of first element in array: %x\n", (unsigned int) *s1_ptr_arr);
 
     assert(*s1_ptr_arr == s1_ptr_arr[0]);
 
@@ -176,7 +175,7 @@ int address_of ()
     const int *pi = &i;
     assert(pi == &i);
     const int **j = &pi; // j now contains the *address* of the pointer pi
-    printf("J: %x\n", (unsigned int) j);
+    printf("J: %p\n", j);
     assert(j == &pi);
     end("address_of");
     assert(*j == pi);

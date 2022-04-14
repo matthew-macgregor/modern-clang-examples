@@ -48,7 +48,7 @@ void exact_width_integers ()
     int32_t large = (1 << 31) - 1;
     uint32_t ularge =  ((uint64_t)1 << 32) - 1; // Need the cast because the shift overflows a word
     int64_t huge = ((uint64_t)1 << 63) - 1;
-    uint64_t uhuge = ((uint64_t)1 << 64) - 1;
+    uint64_t uhuge = ((uint64_t)1 << 64) - 1;   // warning C4293
 
     printf("int8_t %d == %zu\n", small, sizeof small);
     printf("uint8_t %d == %zu\n", usmall, sizeof usmall);

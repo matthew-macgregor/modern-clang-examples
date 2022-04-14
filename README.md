@@ -17,35 +17,77 @@ file at the top level. Many of the examples are fully cross-platform requiring o
 a standards-compliant C runtime library. A few examples have external dependencies:
 
 - Anything prefixed with `win` are for Windows (Win32/64 API). They will be skipped
-if you are building on a different platform.
+  if you are building on a different platform.
 - Some examples (for example, `sqlit3-*`) expect dependencies provided by 
-[vcpkg](https://vcpkg.io/en/index.html). Follow the setup steps for `vcpkg` first, 
-and install the dependencies listed in the README for the example.
+  [vcpkg](https://vcpkg.io/en/index.html). Follow the setup steps for `vcpkg` first, 
+  and install the dependencies listed in the README for that particular example.
 - You can disable these examples by passing the option `USE_VCPKG=OFF` to `cmake`.
 
-After installing `vcpkg` define the following environment variable:
-`VCPKG_CMAKE_TOOLCHAIN_FILE` set to `${path_to_vcpkg}\scripts\buildsystems\vcpkg.cmake`.
+## Vcpkg Setup
+
+After installing `vcpkg` define the following environment variable to tell cmake
+where to find the dependencies. This supports VSCode and command line usage.
+
+`CMAKE_TOOLCHAIN_FILE` set to `${path_to_vcpkg}\scripts\buildsystems\vcpkg.cmake`.
+
+For Visual Studio, run `.\vcpkg integrate install` to allow VS to find the vcpkg 
+dependencies.
 
 ## Building the Examples
 
+### Prerequisites
+- CMake 3.17+
+- Windows: Visual Studio Build Tools (C++), GCC 8.3+
+- Vcpkg 2022-03-30+
+  - Windows: `vcpkg install sqlite3:x64-windows` or `sqlite3:x86-windows`
+  - Linux:   `vcpkg install sqlite3:x64-TBD` or `sqlite3:x86-TBD`
+  - MacOS:   `vcpkg install sqlite3:x64-TBD` or `sqlite3:x86-TBD`
+  - (Naturally, you need to install for the architecture you are building.)
+
 ### Windows: Visual Studio 2019
 
-Visual Studio 2019 has support for CMake-based projects. Choose the configuration you
-would like to build (Debug/Release). Open the base folder in VS and right click on 
-`CMakeLists.txt > Configure`.
+Visual Studio 2019 has support for CMake-based projects. Choose the configuration you would like to build (Debug/Release). Open the base folder in VS and right click on `CMakeLists.txt > Configure`.
 
 - To run the tests: right click on `CMakeLists.txt > Run Tests`
 - To run a single example: choose the startup item in the dropdown on the toolbar.
 
 ### Windows: Visual Studio Code
 
-TODO
+Install [Microsoft CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools).
+
+Make sure you have set up `vcpkg` and set the `CMAKE_TOOLCHAIN_FILE` environment variable (see above). This will allow CMake to find the dependencies installed by `vcpkg`.
+
+1. Select the kit you wish to use for builds on the status bar at the bottom of the window. Example: `Visual Studio Community 2019 Release - amd64`
+2. Configuration should begin automatically. You can trigger it manually by right-clicking on `CMakeLists.txt` and selecting "Configure All Projects".
+3. Click "Build" `[ALL_BUILD]` to build all examples, or select an example to build and run only one.
+4. Run the tests by clicking on `Run CTest` on the status bar at the bottom of the window. (After tests have run this changes to the message "x/y tests passing").
+
+**Tip**: You may need to clean and reconfigure if something isn't building properly.
 
 ### Windows: Command Line
 
+Make sure you have set up `vcpkg` and set the `CMAKE_TOOLCHAIN_FILE` environment variable (see above). This will allow CMake to find the dependencies installed by `vcpkg`.
+
+Configure the build (obviously substituting the generator/toolset/architecture desired):
+
+```ps1
+# Configure:
+cmake -S. -B./build -G "Visual Studio 16 2019" -T host=x64 -A x64
+
+# Build all examples in Debug mode:
+# Note that the -j {n} option spreads the job across threads.
+cmake --build ./build --config Debug --target ALL_BUILD -j12
+# Build selected example:
+cmake --build ./build --config Debug --target conditionals
+# Run the tests:
+ctest --test-dir ./build -C Debug -T test --output-on-failure -j14
+```
+
+### Windows: VSCode + GCC
+
 TODO
 
-### Other Platforms
+# Build for Other Platforms
 
 TODO
 

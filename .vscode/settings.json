@@ -1,7 +1,6 @@
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_CMAKE_TOOLCHAIN_FILE}"
     },
     "cmake.configureOnOpen": true
 }

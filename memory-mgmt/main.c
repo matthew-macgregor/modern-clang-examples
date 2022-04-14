@@ -90,6 +90,8 @@ void mem_func_ptr()
 
 int main(void)
 {
+    // TODO: sometimes a Debug Assertion Failed: _CrtIsValidHeapPointer(block)
+    // when running this test from VSCode (not command line).
     mem_malloc_free();
     mem_realloc();
     mem_calloc();
