@@ -28,9 +28,17 @@ a standards-compliant C runtime library. A few examples have external dependenci
 After installing `vcpkg` define the following environment variable to tell cmake
 where to find the dependencies. This supports VSCode and command line usage.
 
-`CMAKE_TOOLCHAIN_FILE` set to `${path_to_vcpkg}\scripts\buildsystems\vcpkg.cmake`.
+`CMAKE_TOOLCHAIN_FILE` set to `${path_to_vcpkg}/scripts/buildsystems/vcpkg.cmake`.
 
-For Visual Studio, run `.\vcpkg integrate install` to allow VS to find the vcpkg 
+In VSCode, add the following to `.vscode/settings.json`:
+
+```json
+"cmake.configureArgs": [
+    "-DCMAKE_TOOLCHAIN_FILE={YOUR_PATH}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+],
+```
+
+For Visual Studio, run `./vcpkg integrate install` to allow VS to find the vcpkg 
 dependencies.
 
 ## Building the Examples
