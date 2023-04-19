@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
+#include <errno.h>
 
 // memchr - searches num bytes for value, returns pointer to first value or null
 // const void * memchr ( const void * ptr, int value, size_t num );

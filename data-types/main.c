@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdint.h>
 #include <math.h>
 #include <assert.h>
@@ -33,7 +34,7 @@ void primitive_types ()
     printf("double %f == %zu bytes\n", d, sizeof d);
     printf("long double %Lf == %zu bytes\n", ld, sizeof ld);
     printf("pointer %p == %zu bytes\n", ptr, sizeof ptr);
-    printf("hex %x == %zu bytes\n", a, sizeof a);
+    printf("hex %lx == %lu bytes\n", a, sizeof a);
     printf("size_t %zu bytes\n", sz);
     printf("dec %d, oct %d, hex %d\n", dec, oct, hex);
 }
@@ -93,7 +94,7 @@ void literal_suffixes ()
     // Due to how floats/doubles are represented internally (base 2)
     // comparing them is tricky. By using epsilon, we basically say "close enough"
     float epsilon = 0.000000001;
-    assert(abs(f - d) < epsilon && abs(d - dd) < epsilon);
+    assert(fabsl(f - d) < epsilon && fabsl(d - dd) < epsilon);
 }
 
 void bool_type ()
@@ -104,14 +105,12 @@ void bool_type ()
     assert(bb == 1 && b == 0);
 }
 
-int main (int argc, char *argv)
+int main (int argc, char **argv)
 {
     primitive_types();
     exact_width_integers();
     floating_point_types();
     literal_suffixes();
     bool_type();
-
-
     return 0;
 }

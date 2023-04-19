@@ -25,7 +25,7 @@ void void_params1()
     printf("Unknown\n");
 }
 
-void void_params2(void) 
+void void_params2(void)
 {
     // Accepts zero parameters
     printf("Zero parameters\n");
@@ -61,7 +61,7 @@ int main(void)
 {
     assert(sum(1, 2) == 3);
     void_params1(1,2,3);
-    void_params2(1234);     // <= Generates a warning
+    // void_params2(1234);     // <= Generates a warning
     assert(prototype(3) == 9);
     // 4 params, values(1,2,3,4)
     assert(sum_vargs(4, /* <- Count */ 1, 2, 3, 4) == 10);

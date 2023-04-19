@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <errno.h>
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
     #include <unistd.h>
 #else
     #define access _access

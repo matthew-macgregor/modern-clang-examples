@@ -2,5 +2,11 @@
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "cmake.configureSettings": {
     },
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "cmake.configureArgs": [
+        "-DCMAKE_TOOLCHAIN_FILE=/Users/matsu/Code/repos/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    ],
+    "files.associations": {
+        "unistd.h": "c"
+    },
 }

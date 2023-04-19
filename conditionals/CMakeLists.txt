@@ -5,7 +5,6 @@ include(CTest)
 enable_testing()
 
 set(CMAKE_C_STANDARD 11)
-
 add_executable(${PROJECT_NAME} main.c)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

@@ -9,7 +9,7 @@ int mem_malloc_free()
     char *p = malloc(sizeof(char) * 25);
     if (p == NULL) return -1;
 
-    if(!strcpy_s(p, 25, "Hello World")) return -1;
+    if(!memcpy(p, "Hello World", 25 + 1)) return -1;
 
     if (p) free(p);
     p = NULL;
@@ -30,11 +30,14 @@ void mem_realloc()
     struct Person *people = malloc(sizeof(struct Person) * 10);
     struct Person *p = &people[9];
     p->age = 50;
-    if(strcpy_s(p->first_name, NAME_WIDTH, "Meredith") != 0) return;
-    if(strcpy_s(p->last_name, NAME_WIDTH, "Palmer") != 0) return;
+
+    char* meredith = "Meredith";
+    char* palmer = "Palmer";
+    if(memcpy(p->first_name, meredith, strlen(meredith) + 1) != 0) return;
+    if(memcpy(p->last_name, palmer, strlen(palmer) + 1) != 0) return;
     assert(people[9].age == 50);
-    assert(strcmp(people[9].first_name, "Meredith") == 0);
-    assert(strcmp(people[9].last_name, "Palmer") == 0);
+    assert(strcmp(people[9].first_name, meredith) == 0);
+    assert(strcmp(people[9].last_name, palmer) == 0);
 
     struct Person *people2 = realloc(people, sizeof(struct Person) * 20);
     if(people2 == NULL)
